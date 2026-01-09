@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>GOLD Store - خدمات احترافية</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="fonts.googleapis.com" rel="stylesheet">
+
+<style>
+/* Reset and base styles */
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background-color: #f8fafc; /* خلفية فاتحة */
+    color: #1e293b; /* لون النص الأساسي */
+    text-align: right;
+    direction: rtl;
+    line-height: 1.6;
+}
+header {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+header h1 {
+    font-size: 28px;
+    color: #0f172a;
+    margin: 0;
+}
+header p {
+    color: #64748b;
+    margin-top: 5px;
+}
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+/* Navigation Tabs (الأزرار العلوية) */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.tab-button {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    padding: 15px 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s;
+    color: #64748b;
+}
+.tab-button.active {
+    color: #0f172a;
+    background-color: #e0f2fe;
+    border-radius: 10px;
+    font-weight: bold;
+}
+/* Card Styles */
+.card {
+    display: none; /* مخفي افتراضياً */
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+.card h2 {
+    color: #0f172a;
+    margin-top: 0;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+.price {
+    font-size: 24px;
+    color: #0ea5e9; /* أزرق سماوي */
+    font-weight: bold;
+    margin: 15px 0;
+}
+/* Input Styles */
+input, textarea {
+    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    outline: none;
+    background: #f8fafc;
+    color: #1e293b;
+    font-family: 'Cairo', sans-serif;
+}
+/* Button Styles */
+.action-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+    font-family: 'Cairo', sans-serif;
+}
+.btn-primary {
+    background-color: #0ea5e9; /* أزرق أساسي */
+    color: white;
+}
+.btn-whatsapp {
+    background-color: #25D366; /* واتساب أخضر */
+    color: white;
+}
+.bank-info {
+    background: #eff6ff; /* خلفية فاتحة لمعلومات البنك */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: right;
+    border: 1px solid #dbeafe;
+    color: #0f172a;
+    font-size: 14px;
+}
+.footer {
+    margin: 40px 0;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* تنسيق بطاقات الحسابات للبيع */
+.account-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+.account-card h3 {
+    margin: 0 0 10px 0;
+    color: #0f172a;
+}
+.account-card .details {
+    color: #64748b;
+    font-size: 14px;
+}
+.account-card .buy-btn {
+    background-color: #10b981; /* أخضر زمردي */
+    color: white;
+    /* ... نفس تنسيق action-btn ... */
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>GOLD Store</h1>
+<p>منصة احترافية لخدمات الدعم والحسابات</p>
+</header>
+
+<div class="container">
+    <div class="tabs">
+        <button class="tab-button active" onclick="show('accounts-sale', this)">💎 حسابات للبيع</button>
+        <button class="tab-button" onclick="show('pubg-support', this)">🎮 دعم PUBG</button>
+        <button class="tab-button" onclick="show('snap-support', this)">👻 دعم Snapchat</button>
+    </div>
+
+    <!-- قسم خدمات الدعم PUBG -->
+    <div class="card" id="pubg-support">
+        <h2>مساعدة حساب PUBG</h2>
+        <p>إعداد طلب دعم رسمي + مراجعة البيانات. السعر: <span class="price">150 ريال</span></p>
+        <div class="bank-info">
+            **طريقة الدفع (تحويل بنكي) عبر GOLD Store:**<br>
+            اسم البنك: الراجحي (مثال)<br>
+            اسم الحساب: حمد حسن حمد البريكي<br>
+            رقم الحساب: 80000857608115812113
+        </div>
+        <button class="action-btn btn-whatsapp" onclick="window.open('wa.me،%20لقد%20دفعت%20مبلغ%20150%20ريال%20مقابل%20خدمة%20دعم%20PUBG%20وهذه%20المتطلبات.','_blank')">
+        ✅ بعد التحويل: أرسل الإيصال والمتطلبات واتساب
+        </button>
+    </div>
+
+    <!-- قسم خدمات الدعم SNAP -->
+    <div class="card" id="snap-support">
+        <h2>مساعدة حساب Snapchat</h2>
+        <p>صياغة طلب استئناف رسمي + إرشادات. السعر: <span class="price">120 ريال</span></p>
+        <div class="bank-info">
+            **طريقة الدفع (تحويل بنكي) عبر GOLD Store:**<br>
+            اسم البنك: الراجحي (مثال)<br>
+            اسم الحساب: حمد حسن حمد البريكي<br>
+            رقم الحساب: 80000857608115812113
+        </div>
+        <button class="action-btn btn-whatsapp" onclick="window.open('wa.me،%20لقد%20دفعت%20مبلغ%20120%20ريال%20مقابل%20خدمة%20دعم%20Snapchat%20وهذه%20المتطلبات.','_blank')">
+        ✅ بعد التحويل: أرسل الإيصال والمتطلبات واتساب
+        </button>
+    </div>
+
+    <!-- القسم الجديد: حسابات للبيع -->
+    <div class="card" id="accounts-sale">
+        <h2>حسابات ببجي للبيع</h2>
+        <p>اختر الحساب المناسب لك وتواصل معنا للشراء.</p>
+        <div class="account-list" id="account-items">
+            <!-- الحسابات ستضاف هنا بواسطة JavaScript -->
+        </div>
+    </div>
+</div> <!-- End of Container -->
+
+<div class="footer">
+© 2026 – جميع الحقوق محفوظة لـ **GOLD Store**
+</div>
+
+<script>
+// دالة إظهار وإخفاء الأقسام وتغيير حالة الأزرار (Tabs)
+function show(id, button) {
+    // إخفاء كل البطاقات
+    document.getElementById("pubg-support").style.display = "none";
+    document.getElementById("snap-support").style.display = "none";
+    document.getElementById("accounts-sale").style.display = "none";
+    
+    // إظهار البطاقة المطلوبة
+    document.getElementById(id).style.display = "block";
+
+    // إزالة التنسيق النشط من كل الأزرار
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // إضافة التنسيق النشط للزر المضغوط
+    if (button) {
+      button.classList.add('active');
+    }
+}
+
+// بيانات الحسابات للبيع (يمكنك تعديلها هنا)
+const accountsForSale = [
+    {
+        id: 1, title: "حساب لفل 70 نادر", price: 850, details: "مشحون مواسم 5, 6, 7. فيه سكنات نادرة M4 ثلجي لفل 2.",
+        whatsapp_message: "مرحباً متجر قولد، أرغب بشراء حساب لفل 70 بسعر 850 ريال."
+    },
+    {
+        id: 2, title: "حساب لفل 50 عادي", price: 300, details: "حساب نظيف، فيه رقصات أساسية فقط.",
+        whatsapp_message: "مرحباً متجر قولد، أرغب بشراء حساب لفل 50 بسعر 300 ريال."
+    },
+    {
+        id: 3, title: "حساب VIP لفل ماكس", price: 2500, details: "جميع الأسلحة المطورة ماكس، إنجازات كاملة.",
+        whatsapp_message: "مرحباً متجر قولد، أرغب بشراء حساب VIP بسعر 2500 ريال."
+    }
+];
+
+// دالة لعرض الحسابات في الصفحة (نفس السابقة)
+function displayAccounts() {
+    const container = document.getElementById('account-items');
+    container.innerHTML = '';
+    accountsForSale.forEach(account => {
+        const card = document.createElement('div');
+        card.classList.add('account-card');
+        card.innerHTML = `
+            <h3>${account.title}</h3>
+            <p class="details">${account.details}</p>
+            <p>السعر: <strong>${account.price} ريال</strong></p>
+            <button class="action-btn buy-btn" onclick="contactBuy('${encodeURIComponent(account.whatsapp_message)}')">
+                شراء عبر واتساب
+            </button>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// دالة توجيه الشراء للواتساب مع رسالة محددة
+function contactBuy(message) {
+    const phoneNumber = '966583490188'; // رقم جوالك هنا
+    const url = `wa.me{phoneNumber}?text=${message}`;
+    window.open(url, '_blank');
+}
+
+// تشغيل عرض الحسابات عند تحميل الصفحة وإظهارها افتراضياً
+displayAccounts();
+// إظهار قسم الحسابات للبيع عند تحميل الصفحة لأول مرة
+document.getElementById("accounts-sale").style.display="block";
+
+</script>
+
+</body>
+</html>
