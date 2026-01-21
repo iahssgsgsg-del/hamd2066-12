@@ -10,17 +10,18 @@ jobs:
       - name: Setup Theos
         run: |
           git clone --recursive https://github.com/theos/theos.git ~/theos
-          brew install ldid
+          # تحميل أدوات البناء الأساسية
+          curl -LO https://github.com/theos/sdks/raw/master/iPhoneOS14.5.sdk.tar.xz
+          mkdir -p ~/theos/sdks
+          tar -xvf iPhoneOS14.5.sdk.tar.xz -C ~/theos/sdks
           
-      - name: Build Tweak
+      - name: Build Dylib
         run: |
           export THEOS=~/theos
-          make
-          # حركة إجبارية: نسخ الملف للمجلد الرئيسي عشان GitHub يشوفه غصب
-          find . -name "*.dylib" -exec cp {} ./gold.dylib \;
+          make FINALPACKAGE=1
           
-      - name: Upload Artifact
+      - name: Upload Dylib
         uses: actions/upload-artifact@v4
         with:
-          name: GoldSnap-File
-          path: gold.dylib
+          name: My-GoldSnap-Dylib
+          path: "**/GoldSnapV10.dylib"
