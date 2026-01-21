@@ -2,18 +2,23 @@ name: Build GoldSnap
 on: [push, workflow_dispatch]
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Setup Theos
         run: |
           sudo git clone --recursive https://github.com/theos/theos.git /opt/theos
-      - name: Build Tweak
+          
+      - name: Build GoldSnap Tweak
         run: |
           export THEOS=/opt/theos
           make package
-      - name: Upload Artifact
+          
+      - name: Upload GoldSnap Dylib
         uses: actions/upload-artifact@v4
         with:
-          name: GoldSnap-Dylib
+          name: GoldSnap-Dylib-Package
           path: .theos/obj/debug/*.dylib
+          if-no-files-found: error
