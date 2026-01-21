@@ -22,3 +22,6 @@ GoldSnapV10_CFLAGS = -fobjc-arc
 GoldSnapV10_FRAMEWORKS = UIKit CoreLocation
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+
+after-package::
+	rm -rf ./packages/*
